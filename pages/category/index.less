@@ -1,0 +1,54 @@
+.category {
+  height: 100%;
+}
+
+.container {
+  height: ~"calc(100vh - 90rpx)";
+  display: flex;
+  .left {
+    height: 100%;
+    flex: 2;
+    view {
+      height: 80rpx;
+      line-height: 80rpx;
+      text-align: center;
+      font-size: 30rpx;
+    }
+  }
+
+  .right {
+    height: 100%;
+    flex: 5;
+
+    .title {
+      height: 80rpx;
+      line-height: 80rpx;
+      text-align: center;
+      font-size: 30rpx;
+      .tab {
+        color: #666;
+      }
+    }
+
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 30rpx;
+
+      navigator {
+        padding: 10rpx;
+        width: 33.33%;
+        text-align: center;
+        image {
+          width: 50%;
+        }
+      }
+
+    }
+  }
+}
+
+.active {
+  border-left: 4rpx solid var(--color-theme);
+  color: var(--color-theme);
+}

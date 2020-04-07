@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "w-search-input": "/components/w-search-input/w-search-input"
+  }
+}

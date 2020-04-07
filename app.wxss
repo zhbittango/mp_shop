@@ -1,0 +1,19 @@
+@import '/style/icons.wxss';
+
+page, 
+view, 
+text, 
+swiper, 
+swiper-item, 
+image, 
+navigator {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+page {
+  --color-text: #1cd8d2;
+  --color-theme: #1296db;
+  font-size: 28rpx;
+}

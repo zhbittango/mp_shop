@@ -1,0 +1,7 @@
+<!-- index.wxml -->
+<view class="" hover-class="none" hover-stop-propagation="false">
+  <w-search-input />
+  <w-swiper list="{{banners}}" w-swiper="w-swiper" />
+  <index-cates list="{{cates}}" />
+  <index-floor-data list="{{floorData}}" />
+</view>

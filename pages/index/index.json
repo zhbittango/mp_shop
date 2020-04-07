@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "品优购",
+  "usingComponents": {
+    "w-search-input": "/components/w-search-input/w-search-input",
+    "w-swiper": "/components/w-swiper/w-swiper",
+    "index-cates": "childCpms/index-cates/index-cates",
+    "index-floor-data": "childCpms/index-floor-data/index-floor-data"
+  }
+}

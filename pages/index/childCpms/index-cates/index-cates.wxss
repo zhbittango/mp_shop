@@ -1,0 +1,10 @@
+.index-cates {
+  display: flex;
+}
+.index-cates navigator {
+  flex: 1;
+  padding: 20rpx;
+}
+.index-cates navigator image {
+  width: 100%;
+}
