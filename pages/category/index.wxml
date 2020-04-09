@@ -17,7 +17,7 @@
           <text class="tab">/</text>
         </view>
         <view class="list">
-          <navigator wx:for="{{item1.children}}" wx:for-item="item2" wx:for-index="index2" wx:key="cat_id">
+          <navigator url="/pages/goods_list/index?id={{item2.cat_id}}" wx:for="{{item1.children}}" wx:for-item="item2" wx:for-index="index2" wx:key="cat_id">
             <image mode="widthFix" src="{{item2.cat_icon}}" />
             <view>{{item2.cat_name}}</view>
           </navigator>

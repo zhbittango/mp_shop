@@ -20,30 +20,44 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this._getCates()
+    const cates = wx.getStorageSync('cates')
+    if (!cates) {
+      this._getCates()
+    } else {
+      if (Date.now() > cates.time + 1000 * 60 * 5) {
+        this._getCates()
+      } else {
+        this._setList(cates.cates)
+      }
+    }
   },
 
-  _getCates() {
-    getCates().then(res => {
-      console.log(res)
+  async _getCates() {
+    try {
+      const data = await getCates()
+      const cates = data.message
+      console.log('catetory', cates);
       
-      const cates = res.data.message
-      this.cates = cates
-      const leftList = cates.map(item => item.cat_name)
-      const rightList = cates[0].children
-      this.setData({
-        leftList,
-        rightList
-      })
-    }).catch(err => {
+      wx.setStorageSync('cates', { time: Date.now(), cates });
+      this._setList(cates)
+    } catch (err) {
       console.log(err)
+    }
+  },
+
+  _setList(cates) {
+    this.cates = cates
+    const leftList = cates.map(item => item.cat_name)
+    const rightList = cates[0].children
+    this.setData({
+      leftList,
+      rightList
     })
   },
 
   cateClick(e) {
     // console.log(e);
     const index = e.currentTarget.dataset.index
-    
     this.setData({
       top: 0,
       currentIndex: index,

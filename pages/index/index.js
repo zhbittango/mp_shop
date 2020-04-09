@@ -28,9 +28,9 @@ Page({
   /* 获取轮播图数据 */
   async _getBanners() {
     try {
-      const res = await getBanners()
-      const banners = res.data.message
-      console.log('banners', banners)
+      const data = await getBanners()
+      console.log('banners', data)
+      const banners = data.message
       this.setData({
         banners
       })
@@ -40,9 +40,9 @@ Page({
   },
 
   _getCates() {
-    getCates().then(res => {
-      console.log('cates' ,res);
-      const cates = res.data.message
+    getCates().then(data => {
+      console.log('cates' ,data);
+      const cates = data.message
       this.setData({
         cates
       })
@@ -52,9 +52,9 @@ Page({
   },
 
   _getFloorData() {
-    getFloorData().then(res => {
-      console.log('floorData' ,res);
-      const floorData = res.data.message
+    getFloorData().then(data => {
+      console.log('floorData' ,data);
+      const floorData = data.message
       this.setData({
         floorData
       })
@@ -94,7 +94,7 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefdatah: function () {
 
   },
 

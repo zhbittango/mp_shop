@@ -17,3 +17,7 @@ page {
   --color-theme: #1296db;
   font-size: 28rpx;
 }
+
+image{
+  width: 100%;
+}

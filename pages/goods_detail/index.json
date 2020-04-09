@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "w-swiper-preview": "/components/w-swiper-preview/w-swiper-preview"
+  },
+  "navigationBarTitleText": "商品详情"
+}

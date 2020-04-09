@@ -1,0 +1,31 @@
+<view class="goods-detail">
+  <w-swiper-preview list="{{detail.pics}}" w-swiper-preview="w-swiper-preview" />
+  <view class="title">￥{{detail.goods_price}}</view>
+  <view class="name-collect">
+    <view class="name">{{detail.goods_name}}</view>
+    <view class="collect">
+      <text class="iconfont icon-shoucang"></text>
+      <view>收藏</view>
+    </view>
+  </view>
+  <view class="title">图文详情</view>
+  <rich-text nodes="{{detail.goods_introduce}}"></rich-text>
+  <view class="bottom-bar">
+    <view class="bar-item">
+      <text class="iconfont icon-kefu"></text>
+      <view>客服</view>
+      <button open-type="contact"></button>
+    </view>
+    <view class="bar-item">
+      <text class="iconfont icon-fenxiang"></text>
+      <view>分享</view>
+      <button open-type="share"></button>
+    </view>
+    <navigator url="/pages/cart/index" open-type="switchTab" class="bar-item">
+      <text class="iconfont icon-gouwuche"></text>
+      <view>购物车</view>
+    </navigator>
+    <view class="handle add-cart" bind:tap="addCart">加入购物车</view>
+    <view class="handle buy">立即购买</view>
+  </view>
+</view>

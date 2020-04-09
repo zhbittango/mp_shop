@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "w-search-input": "/components/w-search-input/w-search-input",
+    "w-tabbar": "/components/w-tabbar/w-tabbar"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "商品列表"
+  
 }

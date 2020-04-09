@@ -1,2 +1,23 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<view class="goods-list">
+  <w-search-input />
+  <w-tabbar tabs="{{tabs}}" bind:tabsClick="tabsClick">
+    <block wx:if="{{tabs[0].isActive}}">
+      <!-- <scroll-view class="list" scroll-y bindscrolltolower="onReachBottom"> -->
+      <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="list-item" open-type="navigate" wx:for="{{list}}" wx:key="goods_id">
+        <view class="image">
+          <image mode="widthFix" src="{{item.goods_small_logo || '/images/default.jpg'}}" />
+        </view>
+        <view class="list-content">
+          <text class="name">{{item.goods_name}}</text>
+          <text class="price">{{item.goods_price}}</text>
+        </view>
+      </navigator>
+      <!-- <view class="bottom {{more ? 'hide' : ''}}">我也是有底线的</view>
+      </scroll-view> -->
+    </block>
+    <block wx:elif="{{tabs[1].isActive}}">1</block>
+    <block wx:else="{{tabs[2].isActive}}">2</block>
+  </w-tabbar>
+  <!-- <view class="bottom {{more ? 'hide' : ''}}">我也是有底线的</view> -->
+  <view class="bottom" hidden="{{more}}">我也是有底线的</view>
+</view>

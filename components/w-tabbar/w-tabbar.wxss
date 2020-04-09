@@ -1,0 +1,16 @@
+.tabs-titles {
+  display: flex;
+  height: 80rpx;
+}
+.tabs-titles .tabs-item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tabs-titles .tabs-item text {
+  padding: 16rpx 50rpx;
+}
+.active {
+  border-bottom: 2px solid var(--color-theme);
+}

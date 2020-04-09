@@ -1,0 +1,5 @@
+<swiper class="default ^w-swiper-preview" indicator-dots indicator-color="rgba(0,0,0,.3)" indicator-active-color="#1296db" autoplay interval="3000" duration="300" circular>
+    <swiper-item wx:for="{{list}}" wx:key="*this" bind:tap="preview" data-index="{{index}}">
+      <image mode="widthFix" src="{{item.pics_mid}}"/>
+    </swiper-item>
+</swiper>

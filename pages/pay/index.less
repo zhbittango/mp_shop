@@ -1,0 +1,109 @@
+page {
+  padding-bottom: 90rpx;
+}
+
+.address {
+  .select {
+    padding: 30rpx;
+    button {
+      width: 60%;
+      font-weight: normal;
+    }
+  }
+}
+.user-info {
+  padding: 20rpx;
+  display: flex;
+  .address-info {
+    flex: 5;
+    line-height: 40rpx;
+  }
+  .phone {
+    flex: 3;
+    text-align: center;
+  }
+  border-bottom: 1px solid #eee;
+}
+
+.cart-content {
+  .title {
+    padding: 20rpx;
+    font-size: 32rpx;
+    font-weight: 600;
+    color: var(--color-theme);
+    border-bottom: 1px solid currentColor;
+  }
+
+  .cart-list {
+    padding: 20rpx;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    // align-items: center;
+
+    navigator {
+      flex: 4;
+      image {
+        width: 90%;
+      }
+    }
+
+    .content {
+      flex: 9;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      navigator.name {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        line-clamp: 2;
+        color: #666;
+      }
+
+      .price-wrap {
+        display: flex;
+        justify-content: space-between;
+        .price {
+          font-size: 32rpx;
+          color: var(--color-theme);
+        }
+
+        .num {
+          border: none;
+          margin: 0 10rpx;
+        }
+      }
+    }
+  }
+}
+
+.footer-tool {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+
+  .price-wrap {
+    flex: 4;
+    padding-right: 20rpx;
+    // display: flex;
+    text-align: right;
+    .price {
+      font-size: 34rpx;
+      color: var(--color-theme);
+    }
+  }
+
+  .pay {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 36rpx;
+    background-color: var(--color-theme);
+  }
+}
