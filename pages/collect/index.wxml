@@ -1,2 +1,20 @@
-<!--pages/collect/index.wxml-->
-<text>pages/collect/index.wxml</text>
+<w-tabbar class="tabbar" tabs="{{tabs}}" bind:tabsClick="tabsClick">
+  <view class="cart-content">
+    <!-- 购物车列表 -->
+    <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="cart-list" wx:for="{{list}}" wx:key="goods_id">
+      <!-- 图片 -->
+      <navigator>
+        <image mode="widthFix" src="{{item.goods_small_logo || '/images/default.jpg'}}" />
+      </navigator>
+      <!-- 商品内容 -->
+      <view class="content">
+        <!-- 名称 -->
+        <view class="name">{{item.goods_name}}</view>
+        <view class="price-wrap">
+          <!-- 价格 -->
+          <view class="price">￥{{item.goods_price}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</w-tabbar>

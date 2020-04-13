@@ -1,6 +1,6 @@
 <view class="index-cates" hover-class="none" hover-stop-propagation="false">
     <block wx:for="{{list}}" wx:key="name">
-      <navigator class="" url="navigator_url" hover-class="navigator-hover" open-type="navigate">
+      <navigator  url="{{'/pages/category/index'}}" hover-class="navigator-hover" open-type="switchTab">
         <image class="" src="{{item.image_src}}" mode="widthFix" ></image>
       </navigator>
     </block>

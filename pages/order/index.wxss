@@ -1,1 +1,19 @@
-/* pages/order/index.wxss */
+.content-wrap {
+  padding: 20rpx;
+  border-bottom: 1px solid #ccc;
+}
+.content-wrap:nth-last-child(1) {
+  border: none;
+}
+.content-wrap .item {
+  padding: 10rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.content-wrap .item .number {
+  color: #666;
+}
+.content-wrap .item .price {
+  font-size: 36rpx;
+  color: var(--color-theme);
+}

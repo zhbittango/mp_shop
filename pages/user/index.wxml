@@ -1,2 +1,69 @@
-<!--pages/user/index.wxml-->
-<text>pages/user/index.wxml</text>
+<view class="head">
+  <image class="bgImg" src="{{userInfo.avatarUrl}}" mode="widthFix"></image>
+  <view class="userinfo">
+    <image src="{{userInfo.avatarUrl || '/images/login.jpg'}}" mode="widthFix"></image>
+    <view wx:if="{{userInfo}}" class="name">{{userInfo.nickName}}</view>
+    <button wx:else type="primary" plain open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="login">
+      登录
+    </button>
+  </view>
+</view>
+<view class="contain">
+  <view class="wrap">
+    <view class="item">
+      <view class="text">0</view>
+      <view>收藏的店铺</view>
+    </view>
+    <navigator url="/pages/collect/index" class="item">
+      <view class="text">{{collectCount}}</view>
+      <view>收藏的商品</view>
+    </navigator>
+    <view class="item">
+      <view class="text">0</view>
+      <view>关注的商品</view>
+    </view>
+    <view class="item">
+      <view class="text">0</view>
+      <view>我的足迹</view>
+    </view>
+  </view>
+  <view class="order">
+    <view class="title">我的订单</view>
+    <view class="wrap">
+      <navigator url="/pages/order/index?type=1" class="item">
+        <view class="text iconfont icon-6"></view>
+        <view>全部订单</view>
+      </navigator>
+      <navigator url="/pages/order/index?type=2" class="item">
+        <view class="text iconfont icon-gouwuche"></view>
+        <view>待付款</view>
+      </navigator>
+      <navigator url="/pages/order/index?type=3" class="item">
+        <view class="text iconfont icon-huoche"></view>
+        <view>待收货</view>
+      </navigator>
+      <navigator class="item">
+        <view class="text iconfont icon-tuihuotuikuan_dianpu"></view>
+        <view>退款/退货</view>
+      </navigator>
+    </view>
+  </view>
+  <view class="content-title">
+    <view>收货地址管理</view>
+  </view>
+  <view class="content">
+    <view class="title contact-wrap">
+      <view>联系客服</view>
+      <view>444-222-202</view>
+    </view>
+    <!-- <navigator url="/pages/feedback/index " class="title feekback">意见反馈</navigator> -->
+    <view url="/pages/feedback/index " class="title feekback">
+      意见反馈
+      <button open-type="feedback" class="title"></button>
+    </view>
+    <view class="title">关于我们</view>
+  </view>
+  <view class="content-title">
+    <view>把应用推荐给其他人</view>
+  </view>
+</view>

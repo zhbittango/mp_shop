@@ -13,3 +13,10 @@ export function getDetailById(id) {
     data: {goods_id: id}
   })
 }
+
+export function getSearch(data) {
+  return request({
+    url: '/goods/qsearch',
+    data
+  })
+}

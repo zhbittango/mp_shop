@@ -1,3 +1,5 @@
+import { getSearch } from "../../network/goods";
+
 // pages/search/index.js
 Page({
 
@@ -5,14 +7,42 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list: [],
+    hide: true
   },
-
+  timer: null,
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
+  },
+
+  inputHandle(e) {
+    // console.log(e);
+    const { value } = e.detail
+    clearTimeout(this.timer)
+    this.timer = setTimeout(() => {
+      this._getSearch({ query: value })
+    }, 1000)
+  },
+
+  async _getSearch(query) {
+    const { message: list } = await getSearch(query)
+    this.setData({ list })
+  },
+
+  cancel(){
+    this.setData({
+      list: [],
+      hide: true
+    })
+  },
+
+  showSearch() {
+    this.setData({
+      hide: false
+    })
   },
 
   /**

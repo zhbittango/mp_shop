@@ -1,4 +1,5 @@
-import { getSetting, openSetting, chooseAddress, showModal, showToast } from "../../utils/wxApi"
+import { getSetting, openSetting, chooseAddress, showModal, showToast, requestPayment } from "../../utils/wxApi"
+import { createOrder, getPayParams, getOrder } from "../../network/order";
 
 // pages/cart/index.js
 
@@ -24,7 +25,7 @@ Page({
     /* 获取购物车数据 */
     let cart = wx.getStorageSync('cart') || []
     cart = cart.filter(item => item.checked)
-    console.log(cart)
+    // console.log(cart)
 
     let totalPrice = 0
     let totalNum = 0
@@ -41,19 +42,53 @@ Page({
 
 
   /* 支付 */
-  async handlePay() {
-    const { address, totalNum } = this.data
-    if (!address) {
-      await showToast({ title: '请选择收货地址！' })
-      return
+  async handleOrderPay() {
+    try {
+      /* 1 判断是否存在tooken */
+      const token = wx.getStorageSync('token');
+      if (!token) {
+        wx.navigateTo({
+          url: '/pages/auth/index'
+        })
+        return
+      }
+      /* 2 创建订单 */
+      // const header = { Authorization: token }
+      /* 3 请求体参数 */
+      const { totalPrice, address, cart } = this.data
+      const order_price = totalPrice
+      const consignee_addr = address
+      const goods = cart.map(item => [item.goods_id, item.goods_number, item.goods_price])
+
+      /* 4 生成订单编号 */
+      // const data = { data: { order_price, consignee_addr, goods }, header }
+      // console.log(data);
+      // console.log({...data});
+      const { order_number } = await createOrder({ order_price, consignee_addr, goods })
+
+      /* 5 发起预支付 */
+      const { pay } = await getPayParams(order_number)
+
+      /* 6 微信支付api */
+      await requestPayment(pay)
+
+      /* 7 查询订单 */
+      const order = await checkOrder(order_number)
+      await showToast({ title: '支付成功！' })
+
+      /* 更新购物车的缓存 */
+      let storageCart = wx.getStorageSync('cart')
+      storageCart = wx.filter(v => !v.checked)
+      
+      wx.setStorageSync(cart, storageCart)
+
+      wx.navigateTo({
+        url: '/pages/order/index'
+      });
+    } catch (err) {
+      await showToast({ title: '支付失败！' })
+      console.log(err);
     }
-    if (totalNum === 0) {
-      await showToast({ title: '请选中商品需要付款的商品！' })
-      return
-    }
-    wx.navigateTo({
-      url: '/pages/pay/index',
-    });
   },
 
   /**

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "w-tabbar": "/components/w-tabbar/w-tabbar"
+  },
+  "navigationBarTitleText": "收藏列表"
 }

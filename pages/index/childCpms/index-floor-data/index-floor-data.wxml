@@ -5,7 +5,7 @@
     </view>
     <view class="floor-content">
       <block wx:for="{{item1.product_list}}" wx:for-item="item2" wx:for-index="index2" wx:key="name">
-        <navigator url="">
+        <navigator url="{{item2.navigator_url}}">
           <image mode="{{index2 === 0 ? 'widthFix' : 'scaleToFill'}}" src="{{item2.image_src}}" />
         </navigator>
       </block>

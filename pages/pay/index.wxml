@@ -41,5 +41,5 @@
     <text class="price">￥{{totalPrice}}</text>
     <view>包含运费</view>
   </view>
-  <view class="pay" bind:tap="">支付({{totalNum}})</view>
+  <view class="pay" bind:tap="handleOrderPay">支付({{totalNum}})</view>
 </view>

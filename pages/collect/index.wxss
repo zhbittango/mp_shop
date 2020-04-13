@@ -1,1 +1,39 @@
-/* pages/collect/index.wxss */
+page {
+  background: #eee;
+}
+.cart-content .cart-list {
+  padding: 20rpx;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.cart-content .cart-list navigator {
+  flex: 4;
+}
+.cart-content .cart-list navigator image {
+  width: 90%;
+}
+.cart-content .cart-list .content {
+  flex: 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.cart-content .cart-list .content .name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #666;
+}
+.cart-content .cart-list .content .price-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.cart-content .cart-list .content .price-wrap .price {
+  font-size: 32rpx;
+  color: var(--color-theme);
+}
+.cart-content .cart-list .content .price-wrap .num {
+  border: none;
+  margin: 0 10rpx;
+}

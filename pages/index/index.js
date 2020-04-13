@@ -29,8 +29,10 @@ Page({
   async _getBanners() {
     try {
       const data = await getBanners()
-      console.log('banners', data)
-      const banners = data.message
+      let banners = data.message
+      // banners = banners.map(v => ({...v, navigator_url: v.navigator_url.replace(/main/,'index')}))
+      banners.forEach(v => v.navigator_url = v.navigator_url.replace(/main/,'index'))
+      console.log('banners', banners)
       this.setData({
         banners
       })
@@ -55,6 +57,7 @@ Page({
     getFloorData().then(data => {
       console.log('floorData' ,data);
       const floorData = data.message
+      floorData.forEach(v => v.product_list.forEach(v1 => v1.navigator_url = v1.navigator_url.replace(/\?/,'/index?')))
       this.setData({
         floorData
       })

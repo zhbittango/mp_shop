@@ -26,6 +26,7 @@ page {
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  line-height: 40rpx;
 }
 .name-collect .collect {
   flex: 1;
@@ -35,6 +36,9 @@ page {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.name-collect .collect .active {
+  color: var(--color-theme);
 }
 .bottom-bar {
   position: fixed;

@@ -33,11 +33,11 @@ export function chooseAddress() {
 }
 
 /* 模态对话框 */
-export function showModal (options) {
+export function showModal (params) {
   return new Promise((resolve, reject) => {
     wx.showModal({
       title: '提示',
-      content: options.content || '是否确认此操作？',
+      content: params.content || '是否确认此操作？',
       success: resolve,
       fail: reject,
       complete: ()=>{}
@@ -46,13 +46,38 @@ export function showModal (options) {
 }
 
 /* 消息提示框 */
-export function showToast (options) {
+export function showToast (params) {
   return new Promise((resolve, reject) => {
     wx.showToast({
-      title: options.title || '提示',
-      icon: options.icon || 'none',
-      image: options.image || '',
-      duration: options.duration || 1500,
+      title: params.title || '提示',
+      icon: params.icon || 'none',
+      image: params.image || '',
+      mask: true,
+      duration: params.duration || 1500,
+      success: resolve,
+      fail: reject,
+      complete: ()=>{}
+    });
+  })
+}
+
+/* 登录 */
+export function login () {
+  return new Promise((resolve, reject) => {
+    wx.login({
+      timeout:10000,
+      success: resolve,
+      fail: reject,
+      complete: ()=>{}
+    });
+  })
+}
+
+/* 支付 */
+export function requestPayment (params) {
+  return new Promise((resolve, reject) => {
+    wx.requestPayment({
+      ...params,
       success: resolve,
       fail: reject,
       complete: ()=>{}

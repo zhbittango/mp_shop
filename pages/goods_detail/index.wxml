@@ -3,8 +3,9 @@
   <view class="title">￥{{detail.goods_price}}</view>
   <view class="name-collect">
     <view class="name">{{detail.goods_name}}</view>
-    <view class="collect">
-      <text class="iconfont icon-shoucang"></text>
+    <view class="collect" bind:tap="collectHandle">
+      <text wx:if="{{isCollect}}" class="iconfont icon-shoucangmian active"></text>
+      <text wx:else class="iconfont icon-shoucang"></text>
       <view>收藏</view>
     </view>
   </view>

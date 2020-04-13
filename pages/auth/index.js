@@ -1,3 +1,6 @@
+import { login } from "../../utils/wxApi";
+import { getToken } from "../../network/login"
+
 // pages/auth/index.js
 Page({
 
@@ -6,6 +9,28 @@ Page({
    */
   data: {
 
+  },
+
+  async authPay(e) {
+    // console.log(e);
+    try {
+      /* 1 获取用户信息 */
+      const { encryptedData, rawData, iv, signature } = e.detail
+      /* 2 获取code api */
+      const { code } = await login()
+      console.log(code);
+      
+      /* 3 向服务端发送请求获取token */
+      const { token } = await getToken({ encryptedData, rawData, iv, signature, code })
+      /* 4 存入缓存，同时返回上一页 */
+      wx.setStorageSync('token', token)
+      wx.setStorageSync('token', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo')
+      wx.navigateBack({
+        delta: 1
+      });
+    } catch (err) {
+      console.log(err);
+    }
   },
 
   /**

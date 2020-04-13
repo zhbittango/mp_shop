@@ -49,7 +49,7 @@ page {
   display: -webkit-box;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  line-clamp: 2;
+  -webkit-line-clamp: 2;
   color: #666;
 }
 .cart-content .cart-list .content .price-wrap {

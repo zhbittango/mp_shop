@@ -4,8 +4,9 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
@@ -20,12 +21,11 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		},
-		"enhance": true
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.10.4",
-	"appid": "wx988c4a94563c94c3",
+	"appid": "wxdf615823aa6f15b0",
 	"projectname": "project",
 	"debugOptions": {
 		"hidedInDevtools": []
@@ -89,6 +89,41 @@
 					"id": -1,
 					"name": "商品支付",
 					"pathName": "pages/pay/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "支付授权",
+					"pathName": "pages/auth/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/user/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单查询",
+					"pathName": "pages/order/index",
+					"query": "type=1",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "收藏列表",
+					"pathName": "pages/collect/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "搜索中心",
+					"pathName": "pages/search/index",
 					"query": "",
 					"scene": null
 				}

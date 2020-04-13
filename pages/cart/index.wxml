@@ -1,9 +1,9 @@
 <view class="address">
-  <!-- 收货地址 -->
-  <view wx:if="{{!address}}" class="select">
+  <!-- 收货地址 wx:if="{{!address}}" wx:else -->
+  <view class="select">
     <button plain type="primary" bind:tap="selectAddr">选择收货地址</button>
   </view>
-  <view wx:else class="user-info">
+  <view class="user-info">
     <view class="address-info">
       <!-- 用户姓名 -->
       <view class="name">{{address.userName}}</view>
@@ -27,13 +27,13 @@
         </checkbox-group>
       </view>
       <!-- 图片 -->
-      <navigator>
+      <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
         <image mode="widthFix" src="{{item.goods_small_logo}}" />
       </navigator>
       <!-- 商品内容 -->
       <view class="content">
         <!-- 名称 -->
-        <navigator class="name">{{item.goods_name}}</navigator>
+        <navigator url="/pages/goods_detail/index?goods_id={{item.goods_id}}" class="name">{{item.goods_name}}</navigator>
         <view class="price-wrap">
           <!-- 价格 -->
           <view class="price">￥{{item.goods_price}}</view>

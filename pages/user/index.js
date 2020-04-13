@@ -5,15 +5,38 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    userInfo: null,
+    collectCount: 0
   },
 
   /**
-   * 生命周期函数--监听页面加载
-   */
+     * 生命周期函数--监听页面加载
+     */
   onLoad: function (options) {
-
+    /* 获取用户信息缓存 */
+    const userInfo = wx.getStorageSync('userInfo');
+    console.log(userInfo);
+    this.setData({ userInfo })
   },
+
+  /**
+  * 生命周期函数--监听页面显示
+  */
+  // onShow: function () {
+  //   /* 获取用户信息缓存 */
+  //   const userInfo = wx.getStorageSync('userInfo');
+  //   console.log(userInfo);
+  //   this.setData({ userInfo })
+  // },
+
+  getUserInfo(e) {
+    console.log(e);
+    const { userInfo } = e.detail
+    wx.setStorageSync('userInfo', userInfo);
+    this.setData({ userInfo })
+  },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -26,7 +49,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    const collect = wx.getStorageSync('collect');
+    this.setData({
+      collectCount: collect.length || 0
+    })
   },
 
   /**

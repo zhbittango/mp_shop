@@ -1,5 +1,7 @@
 <swiper class="default ^w-swiper" indicator-dots indicator-color="rgba(0,0,0,.3)" indicator-active-color="#1296db" autoplay interval="3000" duration="300" circular>
     <swiper-item wx:for="{{list}}" wx:key="*this">
-      <image mode="widthFix" src="{{item.image_src}}"/>
+      <navigator url="{{item.navigator_url}}"  open-type="navigate">
+        <image mode="widthFix" src="{{item.image_src}}"/>
+      </navigator>
     </swiper-item>
 </swiper>
