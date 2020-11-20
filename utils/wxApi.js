@@ -1,3 +1,5 @@
+/* 微信api */
+
 
 /* 获取设置 */
 export function getSetting() {
@@ -52,7 +54,7 @@ export function showToast (params) {
       title: params.title || '提示',
       icon: params.icon || 'none',
       image: params.image || '',
-      mask: true,
+      mask: params.mask || true,
       duration: params.duration || 1500,
       success: resolve,
       fail: reject,
